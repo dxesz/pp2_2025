@@ -1,14 +1,18 @@
-class MyClass:
+class StringHandler:
     def __init__(self):
-        self.text = ""
+        self.string = ""
+        
 
     def getString(self):
-        self.text = input("Enter a string: ")
+        self.string = input("Enter a string: ")
 
     def printString(self):
-        print(self.text.upper())
+        self.stringUpperCase = self.string.upper()
+        print(self.stringUpperCase)
+        
 
 
-obj = MyClass()
+obj = StringHandler()
 obj.getString()
 obj.printString()
+print(obj.stringUpperCase)
