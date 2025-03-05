@@ -1,6 +1,6 @@
 import re
 
-pattern = r"ab*" # "*" means that b 0 or more
+pattern = r"ab*" 
 test_strings = ["a", "ab", "abb", "ac", "abc"]
 
 for i in test_strings:
