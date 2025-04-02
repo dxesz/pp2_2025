@@ -25,7 +25,7 @@ current_color = BLACK
 brush_size = 4
 eraser_size = 20
 
-# Function to display tool instructions on screen
+
 def draw_instructions():
     font = pygame.font.SysFont("Verdana", 16)
     instructions = [
@@ -39,8 +39,8 @@ def draw_instructions():
         screen.blit(text, (5, y))
         y += 20
 
-# Variables for shape drawing
-start_pos = None  # Stores starting mouse position for rectangle/circle
+
+start_pos = None
 
 running = True
 while running:
@@ -72,22 +72,19 @@ while running:
             elif event.key == K_w:
                 current_color = WHITE
 
-        # Mouse button down starts drawing for shapes
         if event.type == MOUSEBUTTONDOWN:
-            if event.button == 1:  # Left click
+            if event.button == 1: #Левая кнопка мыши
                 start_pos = event.pos
                 if current_tool in ["pen", "eraser"]:
                     draw_color = WHITE if current_tool == "eraser" else current_color
                     pygame.draw.circle(canvas, draw_color, event.pos, brush_size if current_tool == "pen" else eraser_size)
-        # For free drawing with pen or eraser
         if event.type == MOUSEMOTION:
-            if event.buttons[0]:
+            if event.buttons[0]: #Если зажата левая кнопка мыши
                 if current_tool in ["pen", "eraser"]:
                     draw_color = WHITE if current_tool == "eraser" else current_color
                     pygame.draw.circle(canvas, draw_color, event.pos, brush_size if current_tool == "pen" else eraser_size)
-        # Mouse button up for finalizing shapes
         if event.type == MOUSEBUTTONUP:
-            if event.button == 1 and start_pos:
+            if event.button == 1 and start_pos: #Если отпустили левую кнопку мыши и есть начальная позиция
                 end_pos = event.pos
                 if current_tool == "rect":
                     x1, y1 = start_pos
