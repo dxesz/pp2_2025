@@ -5,7 +5,8 @@ conn = psycopg2.connect(
     host="localhost",
     database="phonebook",
     user="postgres",
-    password="12345678"
+    password="5252152521",
+    port=5252
 )
 cur = conn.cursor()
 
@@ -40,7 +41,7 @@ def delete_user():
     conn.commit()
 
 # insert_manual()
-insert_from_csv("data.csv")
+insert_from_csv("Lab10/phonebook/data.csv")
 # update_user()
 # search_user()
 # delete_user()
