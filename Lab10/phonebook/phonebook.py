@@ -40,11 +40,11 @@ def delete_user():
     cur.execute("DELETE FROM contacts WHERE name=%s", (name,))
     conn.commit()
 
-# insert_manual()
-insert_from_csv("Lab10/phonebook/data.csv")
-# update_user()
-# search_user()
-# delete_user()
+insert_manual()
+# insert_from_csv("Lab10/phonebook/data.csv")
+update_user()
+search_user()
+delete_user()
 
 cur.close()
 conn.close()
